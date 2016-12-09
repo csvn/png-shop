@@ -1,0 +1,88 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body > main {
+  flex: 1 1 auto;
+}
+
+body > footer {
+  background: #333;
+  height: 220px;
+  margin-top: 35px;
+}
+
+#canvas {
+  animation: bg 3s ease 4s infinite alternate;
+}
+
+.dragging body {
+  background: red;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: background .4s;
+  z-index: 10;
+}
+.overlay:not(.active) {
+  pointer-events: none;
+}
+.overlay.active {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.dragging-message {
+  color: #fff;
+  font-size: 3em;
+  text-shadow: #000 0 0 .3em, #000 2px 2px .1em;
+}
+.dragging:not(.active) .dragging-message {
+  opacity: 0;
+}
+.dragging.active .dragging-message {
+  animation: slideIn .5s ease;
+}
+.dragging.active-remove .dragging-message {
+  animation: fadeOut .25s ease;
+}
+
+.dragging-message code {
+  background-color: transparent;
+}
+
+@keyframes bg {
+  from {
+    background-color: #fff;
+  }
+  to {
+    background-color: #d5d5d5;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(.6);
+  }
+}
