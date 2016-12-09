@@ -1,36 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Edit image</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Png-shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
-    <script src="main.js" async></script>
+    <script src="main.js" defer></script>
   </head>
   <body>
+    <input id="file" type="file" hidden />
+
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-3">Edit image</h1>
-        <p class="lead">Resize, crop and other simple image editing.</p>
+        <h1 class="display-3">
+          Png-shop
+          <button id="select" class="btn btn-lg btn-primary float-xs-right">Select image</button>
+        </h1>
+        <p class="lead">Simple image and canvas resizing <em>(for now...)</em></p>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Select image</h3>
-          <div id="dropzone" class="dropzone">
-            <input id="file" type="file" />
+    <main class="container">
+      <form id="controls">
+        <div class="row mb-1">
+          <div class="col-xs-4">
+            <div class="input-group">
+              <label class="input-group-addon">Image width</label>
+              <input name="imageX" type="number" class="form-control" value="0">
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="input-group">
+              <label class="input-group-addon">Image height</label>
+              <input name="imageY" type="number" class="form-control" value="0">
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="input-group">
+              <label class="input-group-addon">Image anchor</label>
+              <select name="imageAnchor" class="form-control" value="cc">
+                <option value="lt">Top-Left</option>
+                <option value="ct">Top-Center</option>
+                <option value="rt">Top-Right</option>
+                <option value="lc">Center-Left</option>
+                <option value="cc" selected>Center-Center</option>
+                <option value="rc">Center-Right</option>
+                <option value="lb">Bottom-Left</option>
+                <option value="cb">Bottom-Center</option>
+                <option value="rb">Bottom-Right</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <h3>Image preview</h3>
-          <img id="img" style="max-height: 200px;" />
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="input-group">
+              <label class="input-group-addon">Canvas width</label>
+              <input name="canvasX" type="number" class="form-control" value="0">
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="input-group">
+              <label class="input-group-addon">Canvas height</label>
+              <input name="canvasY" type="number" class="form-control" value="0">
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="input-group">
+              <label class="input-group-addon">Canvas anchor</label>
+              <select name="canvasAnchor" class="form-control" value="cc">
+                <option value="lt">Top-Left</option>
+                <option value="ct">Top-Center</option>
+                <option value="rt">Top-Right</option>
+                <option value="lc">Center-Left</option>
+                <option value="cc" selected>Center-Center</option>
+                <option value="rc">Center-Right</option>
+                <option value="lb">Bottom-Left</option>
+                <option value="cb">Bottom-Center</option>
+                <option value="rb">Bottom-Right</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
+      <canvas id="canvas" class="mt-2 mb-1" width="0" height="0"></canvas>
+    </main>
 
-      <h3>Edit</h3>
-      <canvas id="canvas"></canvas>
+    <div class="container">
+      <p class="text-muted"><em>To save the image, just right click it and select <strong>"Save image as..."</strong>. Image will be saved as a <code>.png</code> file.</em></p>
+    </div>
+
+    <footer></footer>
+
+    <div class="overlay dragging">
+      <div class="dragging-message">
+        <p>Drop image file to edit (<code>.png</code>, <code>.jpg</code>)</p>
+      </div>
     </div>
   </body>
 </html>
