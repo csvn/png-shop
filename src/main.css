@@ -1,0 +1,11 @@
+.dropzone {
+  border: dotted 6px #777;
+  border-radius: 6px;
+  margin: 16px 0;
+  padding: 16px;
+  transition: opacity .3s ease;
+}
+
+.dropzone.dragging {
+  opacity: .5;
+}

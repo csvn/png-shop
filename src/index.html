@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit image</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" async></script>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Edit image</h1>
+        <p class="lead">Resize, crop and other simple image editing.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Select image</h3>
+          <div id="dropzone" class="dropzone">
+            <input id="file" type="file" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3>Image preview</h3>
+          <img id="img" style="max-height: 200px;" />
+        </div>
+      </div>
+
+      <h3>Edit</h3>
+      <canvas id="canvas"></canvas>
+    </div>
+  </body>
+</html>

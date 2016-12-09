@@ -1,0 +1,17 @@
+{
+  "name": "edit-image",
+  "version": "1.0.0",
+  "description": "Simple image editing actions",
+  "author": "Christian Svensson <csvn.dev@gmail.com>",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "browser-sync start -s src -f src --startPath /",
+    "deploy": "gh-pages -d src",
+    "test": "echo \"No tests\""
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "gh-pages": "^0.12.0"
+  }
+}
